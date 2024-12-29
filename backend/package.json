@@ -1,0 +1,29 @@
+{
+  "name": "coally_fullstack_code_test",
+  "version": "1.0.0",
+  "description": "Backend - Coally FullStack Code Test",
+  "homepage": "https://github.com/samuelg1509/coally_FullStack_Code_Test#readme",
+  "bugs": {
+    "url": "https://github.com/samuelg1509/coally_FullStack_Code_Test/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuelg1509/coally_FullStack_Code_Test.git"
+  },
+  "license": "ISC",
+  "author": "Samuel Flores",
+  "type": "commonjs",
+  "main": "app",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "cy:open": "cypress open",
+    "test": "cypress run"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.2"
+  }
+}

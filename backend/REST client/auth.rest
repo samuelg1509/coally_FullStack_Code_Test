@@ -1,0 +1,4 @@
+### Autenticar usuario
+GET http://localhost:8080/api/auth/login
+Accept: application/vnd.api+json
+Authorization: Basic admin Test123*
