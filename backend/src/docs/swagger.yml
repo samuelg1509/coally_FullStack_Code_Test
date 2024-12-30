@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Coally backend code test by Samuel Flores
+  title: Coally fullstack code test by Samuel Flores
   description: |-
     Endpoint para sistema de evaluación 360° de empleados.
     
