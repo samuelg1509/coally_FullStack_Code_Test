@@ -2,13 +2,13 @@
 const main = {};
 
 /**
- * Generador de respuestas cuando todo fue bien
+ * Ok response parser.
  * @param {*} res
  * @param {*} message
  * @param {*} data
  * @returns
  */
-main.ok = (res, message, data = null) => {
+main.ok = (res, cod, message, data = null) => {
     res.set('Content-Type', 'application/vnd.api+json');
     let response = {
         success:true,
@@ -18,11 +18,11 @@ main.ok = (res, message, data = null) => {
     
     if(data) response['data'] = data;
     
-    return res.send(response);
+    return res.status(parseInt(cod)).send(response);
 };
 
 /**
- * Generador de respuestas cuando hubo error
+ * Error parser.
  * @param {*} res
  * @param {*} cod
  * @param {*} message
