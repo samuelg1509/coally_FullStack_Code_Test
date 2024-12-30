@@ -41,12 +41,24 @@ class Auth extends JWToken {
             //bearer
             const token = this.#authHeader.token;
             const tokenData = this.verifyJwt(token);
+            if(tokenData.error)
+                return {error:tokenData.error}
+
             username = tokenData.username;
+
         }
 
-        return await userService.findOne({
+        const user = await userService.findOne({
             username
         }, 'username password email');
+        
+        if(user){
+
+            return user;
+
+        }else{
+            return {error:"Unauthorized"}
+        }
     };
 
     /**

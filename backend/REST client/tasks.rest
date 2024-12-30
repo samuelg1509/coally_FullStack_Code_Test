@@ -1,0 +1,42 @@
+### Nueva tarea. 
+POST http://localhost:8080/api/tasks
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NzFjYjRmNjFiNGNmYWQxOWIxYWIxZCIsImVtYWlsIjoidGVzdEB5b3BtYWlsLmNvbSIsInVzZXJuYW1lIjoidXNlcjEiLCJpYXQiOjE3MzU1MjUyNTAsImV4cCI6MTczNTUyNzA1MH0.J482tSKc3ea0jGVOc-K2ZpKw-Et9j-HcVpU1kIH1kys
+
+{
+    "title":"Task title",
+    "description":"Task description"
+
+}
+
+### Listar tareas. 
+GET http://localhost:8080/api/tasks?limit=10&page=1&order=asc
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NzFjYjRmNjFiNGNmYWQxOWIxYWIxZCIsImVtYWlsIjoidGVzdEB5b3BtYWlsLmNvbSIsInVzZXJuYW1lIjoidXNlcjEiLCJpYXQiOjE3MzU1MzQxNzksImV4cCI6MTczNTYwNjE3OX0.Rm4HQAZIzeHUOXiyDBBdj7cN7yKFF-jzCxSr-ufpVqE
+
+
+### Tarea por id. 
+GET http://localhost:8080/api/tasks/67720a43b9f42ab267eb6d25
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NzFjYjRmNjFiNGNmYWQxOWIxYWIxZCIsImVtYWlsIjoidGVzdEB5b3BtYWlsLmNvbSIsInVzZXJuYW1lIjoidXNlcjEiLCJpYXQiOjE3MzU1MzQxNzksImV4cCI6MTczNTYwNjE3OX0.Rm4HQAZIzeHUOXiyDBBdj7cN7yKFF-jzCxSr-ufpVqE
+
+### Actualizar tarea por id. 
+PUT http://localhost:8080/api/tasks/67720a4bb9f42ab267eb6d28
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NzFjYjRmNjFiNGNmYWQxOWIxYWIxZCIsImVtYWlsIjoidGVzdEB5b3BtYWlsLmNvbSIsInVzZXJuYW1lIjoidXNlcjEiLCJpYXQiOjE3MzU1MzQxNzksImV4cCI6MTczNTYwNjE3OX0.Rm4HQAZIzeHUOXiyDBBdj7cN7yKFF-jzCxSr-ufpVqE
+
+{
+    "title":"Task 3",
+    "description":"Task description",
+    "completed":true
+}
+
+### Eliminar tarea por id. 
+DELETE http://localhost:8080/api/tasks/67720a43b9f42ab267eb6d25
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NzFjYjRmNjFiNGNmYWQxOWIxYWIxZCIsImVtYWlsIjoidGVzdEB5b3BtYWlsLmNvbSIsInVzZXJuYW1lIjoidXNlcjEiLCJpYXQiOjE3MzU1MzQxNzksImV4cCI6MTczNTYwNjE3OX0.Rm4HQAZIzeHUOXiyDBBdj7cN7yKFF-jzCxSr-ufpVqE
