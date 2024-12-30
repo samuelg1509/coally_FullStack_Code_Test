@@ -4,6 +4,7 @@ const chalk = require('chalk');
 const connectDB = require("./src/config/database");
 const response = require('./src/libs/responses')
 const { ENV } = require('./src/config/constants');
+const cors = require('cors');
 const { routes } = require("./src/routes");
 const Middleware = require("./src/Middleware/SessionMiddleware");
 const swagger = require("./src/config/swagger");
@@ -12,6 +13,11 @@ const app = express();
 // DB Connection
 connectDB();
 
+app.use(
+    cors({
+        origin: "*",
+    })
+);
 app.use(express.json());
 
 // Swagger

@@ -1,6 +1,7 @@
 'use client'
 
 import StoreProvider from "@/store/provider";
+import "./globals.css";
 
 export default function RootLayout({ children }) {
   return (

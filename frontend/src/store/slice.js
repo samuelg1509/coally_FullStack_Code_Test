@@ -6,11 +6,12 @@ export const Slice = createSlice({
         token:''
     },
     reducers:{
-        setToken: (state,action)=>{
+        updateToken: (state,action)=>{
             state.token = action.payload;
+            sessionStorage.setItem("token", action.payload);
         }
     }
 
 });
 
-export const {setToken} = Slice.actions;
+export const {updateToken} = Slice.actions;
