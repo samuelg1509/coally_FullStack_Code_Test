@@ -7,8 +7,8 @@ export const Slice = createSlice({
     },
     reducers:{
         updateToken: (state,action)=>{
-            state.token = action.payload;
             sessionStorage.setItem("token", action.payload);
+            state.token = action.payload;
         }
     }
 

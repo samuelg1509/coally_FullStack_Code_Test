@@ -4,23 +4,34 @@ import { useDispatch, useSelector } from "react-redux";
 import { redirect } from 'next/navigation';
 import { useForm } from "react-hook-form";
 import { updateToken } from "@/store/slice";
+import { useEffect } from "react";
 
 
 export default function Page() {
-  const token = sessionStorage.getItem("token");
   const dispatch = useDispatch();
-  
 
   const {
     register,
     handleSubmit,
+    setValue,
     reset,
     formState: { errors },
   } = useForm();
 
-  if(token) return redirect(`/home`);
+  useEffect(() => {
+    const token = sessionStorage.getItem("token")
+    if(token !== '') return redirect(`/home`);
+  })
+
 
   const onSubmit = async (formData) => {
+
+    // let headers = new Headers();
+    // const authString = `${formData.username} ${formData.password}`
+
+    // headers.set('Authorization', 'Basic ' + btoa(authString));
+
+    // console.log(btoa(authString),"he")
 
     const response = await fetch("http://localhost:8080/api/auth/login", {
       headers: new Headers({
@@ -29,16 +40,9 @@ export default function Page() {
     });
 
     const json = await response.json();
-    if(json.success){
 
-      dispatch(updateToken(json.data.sesion_token));
+    dispatch(updateToken(json.data.sesion_token))
 
-    }else{
-
-      dispatch(updateToken(null));
-
-
-    }
 
     reset();
     
