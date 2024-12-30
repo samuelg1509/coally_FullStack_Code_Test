@@ -6,12 +6,16 @@ const response = require('./src/libs/responses')
 const { ENV } = require('./src/config/constants');
 const { routes } = require("./src/routes");
 const Middleware = require("./src/Middleware/SessionMiddleware");
+const swagger = require("./src/config/swagger");
 const app = express();
 
 // DB Connection
 connectDB();
 
 app.use(express.json());
+
+// Swagger
+swagger(app);
 
 //Session Middleware
 app.use(Middleware);

@@ -1,0 +1,62 @@
+paths:
+  /api/auth/login:
+    get:
+      tags:
+        - auth
+      summary: User authentication
+      description: Get user token
+      operationId: auth
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OkResponse'  
+        401:
+          description: Unauthorized error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security: 
+        - basicAuth: []
+  /api/auth/register:
+    post:
+      tags:
+        - auth
+      summary: User register
+      description: User register
+      operationId: register
+      requestBody:
+        description: Create a new user
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserData'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UserData'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserData'
+        required: true
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OkResponse'
+        500:
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'

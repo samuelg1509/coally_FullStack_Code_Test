@@ -1,0 +1,93 @@
+openapi: 3.0.0
+info:
+  title: Coally backend code test by Samuel Flores
+  description: |-
+    Endpoint para sistema de evaluación 360° de empleados.
+    
+    Some useful links:
+    - [Repositorio](https://github.com/samuelg1509/coally_FullStack_Code_Test)
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Local development server 
+paths:
+components:
+  securitySchemes:
+    basicAuth:     
+      type: http
+      scheme: basic
+    bearerAuth:           
+      type: http
+      scheme: bearer
+      bearerFormat: JWT  
+  schemas:
+    OkResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        cod_error:
+          type: string
+        message:
+          type: string
+        data:
+          type: object
+      xml:
+        name: order
+    AllOkResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        cod_error:
+          type: string
+        message:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+      xml:
+        name: order
+    ErrorResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        cod_error:
+          type: string
+        message:
+          type: string
+        data:
+          type: object
+      xml:
+        name: order
+    UserData:
+      type: object
+      properties:
+        username:
+          type: string
+          example: mcasas
+        password:
+          type: string
+          example: Cc123456.
+        email:
+          type: string
+          example: test@yopmail.com
+      xml:
+        name: UserData
+    TaskData:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Task title
+        description:
+          type: string
+          example: Task description
+        completed:
+          type: boolean
+          example: true
+      xml:
+        name: TaskData

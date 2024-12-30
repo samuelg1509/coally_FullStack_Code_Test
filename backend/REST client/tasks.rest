@@ -11,7 +11,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NzFjYjRmN
 }
 
 ### Listar tareas. 
-GET http://localhost:8080/api/tasks?limit=10&page=1&order=asc
+GET http://localhost:8080/api/tasks?limit=10&page=1&order=asc&state=pending
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NzFjYjRmNjFiNGNmYWQxOWIxYWIxZCIsImVtYWlsIjoidGVzdEB5b3BtYWlsLmNvbSIsInVzZXJuYW1lIjoidXNlcjEiLCJpYXQiOjE3MzU1MzQxNzksImV4cCI6MTczNTYwNjE3OX0.Rm4HQAZIzeHUOXiyDBBdj7cN7yKFF-jzCxSr-ufpVqE
@@ -24,7 +24,7 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NzFjYjRmNjFiNGNmYWQxOWIxYWIxZCIsImVtYWlsIjoidGVzdEB5b3BtYWlsLmNvbSIsInVzZXJuYW1lIjoidXNlcjEiLCJpYXQiOjE3MzU1MzQxNzksImV4cCI6MTczNTYwNjE3OX0.Rm4HQAZIzeHUOXiyDBBdj7cN7yKFF-jzCxSr-ufpVqE
 
 ### Actualizar tarea por id. 
-PUT http://localhost:8080/api/tasks/67720a4bb9f42ab267eb6d28
+PUT http://localhost:8080/api/tasks/67720a43b9f42ab267eb6d25
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NzFjYjRmNjFiNGNmYWQxOWIxYWIxZCIsImVtYWlsIjoidGVzdEB5b3BtYWlsLmNvbSIsInVzZXJuYW1lIjoidXNlcjEiLCJpYXQiOjE3MzU1MzQxNzksImV4cCI6MTczNTYwNjE3OX0.Rm4HQAZIzeHUOXiyDBBdj7cN7yKFF-jzCxSr-ufpVqE

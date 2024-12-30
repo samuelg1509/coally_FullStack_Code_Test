@@ -1,0 +1,209 @@
+paths:
+  /api/tasks:
+    post:
+      tags:
+        - tasks
+      summary: Create task
+      description: Create task
+      operationId: Create
+      requestBody:
+        description: Create a new task
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskData'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TaskData'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TaskData'
+        required: true
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OkResponse'
+        401:
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security: 
+        - bearerAuth: []
+    get:
+      tags:
+        - tasks
+      summary: Get all tasks
+      description: Get all tasks
+      operationId: getAll
+      parameters:
+        - in: query
+          default: 10
+          name: limit
+          schema:
+            type: integer
+        - in: query
+          default: 1
+          required: false
+          name: page
+          schema:
+            type: integer
+        - in: query
+          default: asc
+          required: false
+          name: order
+          schema:
+            type: string
+            enum: [asc, desc]
+        - in: query
+          default: createdAt
+          required: false
+          name: orderBy
+          schema:
+            type: string
+        - in: query
+          required: false
+          name: state
+          schema:
+            enum: [pending, completed]
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllOkResponse'
+        401:
+          description: Unauthorized error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security: 
+        - bearerAuth: []
+  /api/tasks/{taskId}:
+    get:
+      tags:
+        - tasks
+      summary: Get task by Id
+      description: Get tasks by Id
+      operationId: getById
+      parameters:
+        - in: path
+          name: taskId
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OkResponse'
+        401:
+          description: Unauthorized error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security: 
+        - bearerAuth: []
+    put:
+      tags:
+        - tasks
+      summary: Update task
+      description: Update task
+      operationId: Update
+      parameters:
+        - in: path
+          name: taskId
+          schema:
+            type: string
+      requestBody:
+        description: Update a task
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskData'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TaskData'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TaskData'
+        required: true
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OkResponse'
+        401:
+          description: Unauthorized error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security: 
+        - bearerAuth: []
+    delete:
+      tags:
+        - tasks
+      summary: Delete task by Id
+      description: Delete tasks by Id
+      operationId: deleteById
+      parameters:
+        - in: path
+          name: taskId
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OkResponse'
+        401:
+          description: Unauthorized error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security: 
+        - bearerAuth: []

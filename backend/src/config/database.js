@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { ENV } = require('./constants');
 
-const URI = ENV.MONGO_DB_URI || "mongodb://localhost:27017/nolatech_test";
+const URI = ENV.MONGO_DB_URI || "mongodb://localhost:27017/coally_test";
 
 const connectDB = async()=> {
   try {
