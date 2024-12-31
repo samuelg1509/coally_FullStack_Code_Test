@@ -1,10 +1,8 @@
 'use client'
 
-import { useDispatch, useSelector } from "react-redux";
-import { redirect } from 'next/navigation';
+import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { updateToken } from "@/store/slice";
-import { useEffect } from "react";
 import { Logo } from '@/assets/logo';
 
 export default function Page() {

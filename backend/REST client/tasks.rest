@@ -2,19 +2,19 @@
 POST http://localhost:8080/api/tasks
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NzFjYjRmNjFiNGNmYWQxOWIxYWIxZCIsImVtYWlsIjoidGVzdEB5b3BtYWlsLmNvbSIsInVzZXJuYW1lIjoidXNlcjEiLCJpYXQiOjE3MzU1MjUyNTAsImV4cCI6MTczNTUyNzA1MH0.J482tSKc3ea0jGVOc-K2ZpKw-Et9j-HcVpU1kIH1kys
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NzI0MzA5OTRlYjc2Y2M5ZDg3YTIyOSIsImVtYWlsIjoidXNlcjFAeW9wbWFpbC5jb20iLCJ1c2VybmFtZSI6InVzZXIxIiwiaWF0IjoxNzM1Njc0NzQ4LCJleHAiOjE3MzU3NDY3NDh9.l-BwgBDUbZCGcs3tJXjUTG57-N-mABcjDX5DffsJ_dI
 
 {
-    "title":"Task title",
-    "description":"Task description"
+    "title":"Task 4 title",
+    "description":"Task 4 description"
 
 }
 
 ### Listar tareas. 
-GET http://localhost:8080/api/tasks?limit=10&page=1&order=asc&state=pending
+GET http://localhost:8080/api/tasks?limit=10&page=1&order=asc
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NzFjYjRmNjFiNGNmYWQxOWIxYWIxZCIsImVtYWlsIjoidGVzdEB5b3BtYWlsLmNvbSIsInVzZXJuYW1lIjoidXNlcjEiLCJpYXQiOjE3MzU1MzQxNzksImV4cCI6MTczNTYwNjE3OX0.Rm4HQAZIzeHUOXiyDBBdj7cN7yKFF-jzCxSr-ufpVqE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NzI0MzA5OTRlYjc2Y2M5ZDg3YTIyOSIsImVtYWlsIjoidXNlcjFAeW9wbWFpbC5jb20iLCJ1c2VybmFtZSI6InVzZXIxIiwiaWF0IjoxNzM1Njc0NzQ4LCJleHAiOjE3MzU3NDY3NDh9.l-BwgBDUbZCGcs3tJXjUTG57-N-mABcjDX5DffsJ_dI
 
 
 ### Tarea por id. 
