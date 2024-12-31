@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation';
 import { useForm } from "react-hook-form";
 import { updateToken } from "@/store/slice";
 import { useEffect } from "react";
-import { Logo } from '@/assets/lgit ogo';
+import { Logo } from '@/assets/logo';
 
 export default function Page() {
   const dispatch = useDispatch();
@@ -43,7 +43,7 @@ export default function Page() {
 
   return(
     <div className='fixed bg-blue-200 w-full h-full md:h-screen'>
-      <span className='absolute bg-green-100 h-full w-10 ml-[70%] md:w-40 md:ml-[70%]'/>
+      <span className='absolute bg-green-100 h-full w-10 ml-[70%]'/>
       <span className='absolute bg-blue-300 h-full w-[70%] md:w-[70%]'/>
       <div className="absolute ml-[25%] mt-[15%] md:ml-[30%] md:mt-[3%]">
         <Logo/>
