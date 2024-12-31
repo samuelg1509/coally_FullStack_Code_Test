@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 
 export default function Home() {
-  const [token, setToken] = useState(sessionStorage.getItem("token"));
+  const token = sessionStorage.getItem("token");
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,7 +16,6 @@ export default function Home() {
   const logout = ()=>{
 
     dispatch(updateToken(''));
-    setToken('');
 
   }
   
