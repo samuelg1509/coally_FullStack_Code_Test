@@ -1,44 +1,31 @@
 'use client'
 import { useDispatch, useSelector } from "react-redux";
-import { updateToken } from "@/store/slice";
+import { updateToken } from "@/store/slice";  
 import { useEffect, useState } from "react";
-import {DeleteXIcon} from '@/assets/logo'
 import Table from "@/components/home/table";
+import {sendRequest} from '@/lib/request'
 
 export default function Home() {
   const dispatch = useDispatch();
   const [data,setData] = useState([]);
-  const token = useSelector(state => state.token.token);
 
+  const getData = async()=>{
+    const request = new sendRequest('tasks','Bearer');
+    const response = await request.send('GET');
+    return response;
+  };
+  
   const DeleteItem = async(id)=>{
+    const request = new sendRequest('tasks','Bearer',id);
+    const response = await request.send('DELETE');
 
-    const response = await fetch(`http://localhost:8080/api/tasks/${id}`, {
-      method: 'DELETE',
-      headers: new Headers({
-        "Authorization": `Bearer ${token}`
-      }),
-    });
-
-    const json = await response.json();
-    if(json.success){
-      getData().then((res)=>{
+    if(response.success){
+     return getData().then((res)=>{
         setData(res.data);
       })
     }
     
   };
-
-
-  const getData = async()=>{
-    const response = await fetch("http://localhost:8080/api/tasks", {
-      headers: new Headers({
-        "Authorization": `Bearer ${token}`
-      }),
-    });
-
-    const json = await response.json();
-    return json;
-  }
 
   useEffect(() => {
     getData().then((res)=>{

@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { updateToken } from "@/store/slice";
 import { Logo } from '@/assets/logo';
+import {sendRequest} from '@/lib/request';
 
 export default function Page() {
   const dispatch = useDispatch();
@@ -17,18 +18,16 @@ export default function Page() {
 
 
   const onSubmit = async (formData) => {
-
-    const response = await fetch("http://localhost:8080/api/auth/login", {
-      headers: new Headers({
-        "Authorization": `Basic ${ btoa(`${formData.username}:${formData.password}`)}`
-      }),
+    const request = new sendRequest('auth/login','basic');
+    const response = await request.send('GET',{
+      username: formData.username,
+      password: formData.password
     });
 
-    const json = await response.json();
-    if(json.cod_error == 401){
+    if(response.cod_error == 401){
       alert("invalid username or password");
     }else{
-      dispatch(updateToken(json.data.sesion_token));
+      dispatch(updateToken(response.data.sesion_token));
       reset();
     }
   };
