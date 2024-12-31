@@ -9,7 +9,6 @@ import { Logo } from '@/assets/logo';
 
 export default function Page() {
   const dispatch = useDispatch();
-  const token = useSelector(state => state.token.token);
 
   const {
     register,
@@ -17,11 +16,6 @@ export default function Page() {
     reset,
     formState: { errors },
   } = useForm();
-
-  useEffect(() => {
-    const token = sessionStorage.getItem("token")
-    if(token !== '') return redirect(`/home`);
-  })
 
 
   const onSubmit = async (formData) => {
@@ -42,7 +36,7 @@ export default function Page() {
   };
 
   return(
-    <div className='fixed bg-blue-200 w-full h-full md:h-screen'>
+    <div className='bg-blue-200 w-full h-full md:h-screen'>
       <span className='absolute bg-green-100 h-full w-10 ml-[70%]'/>
       <span className='absolute bg-blue-300 h-full w-[70%] md:w-[70%]'/>
       <div className="absolute ml-[25%] mt-[15%] md:ml-[30%] md:mt-[3%]">
