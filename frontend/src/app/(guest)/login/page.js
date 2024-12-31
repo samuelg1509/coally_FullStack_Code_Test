@@ -6,14 +6,13 @@ import { useForm } from "react-hook-form";
 import { updateToken } from "@/store/slice";
 import { useEffect } from "react";
 
-
 export default function Page() {
   const dispatch = useDispatch();
+  const token = useSelector(state => state.token.token);
 
   const {
     register,
     handleSubmit,
-    setValue,
     reset,
     formState: { errors },
   } = useForm();
@@ -26,13 +25,6 @@ export default function Page() {
 
   const onSubmit = async (formData) => {
 
-    // let headers = new Headers();
-    // const authString = `${formData.username} ${formData.password}`
-
-    // headers.set('Authorization', 'Basic ' + btoa(authString));
-
-    // console.log(btoa(authString),"he")
-
     const response = await fetch("http://localhost:8080/api/auth/login", {
       headers: new Headers({
         "Authorization": `Basic ${ btoa(`${formData.username}:${formData.password}`)}`
@@ -40,17 +32,13 @@ export default function Page() {
     });
 
     const json = await response.json();
-
-    dispatch(updateToken(json.data.sesion_token))
-
-
-    reset();
-    
-    
-   
+    if(json.cod_error == 401){
+      alert("invalid username or password");
+    }else{
+      dispatch(updateToken(json.data.sesion_token));
+      reset();
+    }
   };
-
-
 
   return(
     <div>

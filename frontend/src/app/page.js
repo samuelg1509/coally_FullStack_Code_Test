@@ -1,9 +1,11 @@
 'use client'
 import { redirect } from 'next/navigation';
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
+
 
 const Page = ()=> {
-    // const token = sessionStorage.getItem("token")
+    const token = useSelector(state => state.token.token);
     // console.log(token)
     useEffect(() => {
       if(token === '') {
